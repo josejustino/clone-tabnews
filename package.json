@@ -34,6 +34,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@secretlint/secretlint-rule-preset-recommend": "^13.0.5",
     "commitizen": "^4.3.0",
     "concurrently": "^8.2.2",
     "cz-conventional-changelog": "^3.3.0",
@@ -43,7 +44,8 @@
     "eslint-plugin-jest": "^28.6.0",
     "husky": "^9.1.4",
     "jest": "^30.4.2",
-    "prettier": "^3.8.0"
+    "prettier": "^3.8.0",
+    "secretlint": "^13.0.5"
   },
   "config": {
     "commitizen": {
