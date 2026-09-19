@@ -15,7 +15,7 @@ function runPreRequisite(command) {
     execSync(command, { stdio: "inherit" });
     return true;
   } catch (error) {
-    console.error(`\n Falha ao executar: ${command}`);
+    console.error(`\n❌ Falha ao executar: ${command}`);
     return false;
   }
 }
