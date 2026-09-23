@@ -3,6 +3,7 @@ import { runner } from "node-pg-migrate";
 import { resolve } from "node:path";
 
 const defaultMigrationOptions = {
+  databaseUrl: process.env.DATABASE_URL,
   dryRun: true,
   dir: resolve("infra", "migrations"),
   direction: "up",
