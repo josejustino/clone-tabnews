@@ -10,6 +10,7 @@ import {
 } from "./errors.js";
 import session from "models/session.js";
 import user from "models/user.js";
+import authorization from "models/authorization.js";
 
 function onNoMatchHandler(request, response) {
   const publicErrorObject = new MethodNotAllowedError();
@@ -70,7 +71,6 @@ async function injectAnonymousOrUser(request, response, next) {
 
   injectAnonymousUser(request);
   return next();
-  // 2. Se não existir, injetar usuário anônimo.
 }
 
 async function injectAuthenticatedUser(request) {
@@ -98,8 +98,8 @@ function injectAnonymousUser(request) {
 function canRequest(feature) {
   return function canRequestMiddleware(request, response, next) {
     const userTryingToRequest = request.context.user;
-
-    if (userTryingToRequest.features.includes(feature)) {
+    // console.log(userTryingToRequest);
+    if (authorization.can(userTryingToRequest, feature)) {
       return next();
     }
 
