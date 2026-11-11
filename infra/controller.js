@@ -98,14 +98,13 @@ function injectAnonymousUser(request) {
 function canRequest(feature) {
   return function canRequestMiddleware(request, response, next) {
     const userTryingToRequest = request.context.user;
-    // console.log(userTryingToRequest);
     if (authorization.can(userTryingToRequest, feature)) {
       return next();
     }
 
     throw new ForbiddenError({
       message: "Você não possui permissão para executar esta ação.",
-      action: `Verifique se o seu usuário possui a feature "${feature}`,
+      action: `Verifique se o seu usuário possui a feature "${feature}"`,
     });
   };
 }
